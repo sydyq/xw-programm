@@ -1,0 +1,33 @@
+<!--pages/event/event.wxml-->
+<text>pages/event/event.wxml</text>
+<view class="title">事件分类</view>
+<view>1.冒泡事件</view>
+<view>2.非冒泡事件</view>
+<view class="title">普通事件绑定</view>
+<button type="primary" bindtap="bindClick">普通事件绑定</button>
+<view class="title">绑定并阻止事件冒泡</view>
+除bind外，还可以用catch来绑定事件。与bind不同，catch会阻止事件向上冒泡。
+下边这个例子中，点击 inner view 会先后调用handleTap3和handleTap2(因为 tap 事件会冒泡到 middle view，而 middle view 阻止了 tap 事件冒泡，不再向父节点传递)，点击 middle view 会触发handleTap2，点击 outer view 会触发handleTap1。
+<view id="outer" bindtap="handleTap1">
+  outer view
+  <view id="middle" catchtap="handleTap2">
+    middle view
+    <view id="inner" bindtap="handleTap3">
+      inner view
+    </view>
+  </view>
+</view>
+<view class="title">互斥事件绑定</view>
+出bind和catch外，还可以用mut-bind来绑定事件。一个 mut-bind 触发后，如果事件冒泡到其他节点上，其他节点上的 mut-bind 绑定函数不会被触发，但 bind 绑定函数和 catch 绑定函数依旧会被触发。
+例如在下边这个例子中，点击 inner view 会先后调用 handleTap3 和 handleTap2 ，点击 middle view 会调用 handleTap2 和 handleTap1 
+<view id="outer" mut-bind:tap="handleTap1">
+  outer view
+  <view id="middle" bindtap="handleTap2">
+    middle view
+    <view id="inner" mut-bind:tap="handleTap3">
+      inner view
+    </view>
+  </view>
+</view>
+<checkbox model:checked="{{checkboxBool}}">{{checkboxBool}}</checkbox>
+

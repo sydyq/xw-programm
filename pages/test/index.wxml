@@ -1,0 +1,79 @@
+<!-- 数据绑定 -->
+<view class="title comm-color">数据绑定</view>
+<view class="title" style="color: {{col}};">1.简单绑定</view>
+<view>--数据绑定需要将变量用双大括号将变量包裹起来</view>
+<view>--组件属性（需要写在双引号之内）</view>
+<view>--控制属性（需要写在双引号内）</view>
+<view>--关键字（需要写在双引号内）</view>
+<view wx:if="{{msg == 'msgShow'}}" id="{{msg}}" class="aa_{{msg}}">{{msg}}</view>
+<checkbox checked="{{true}}"></checkbox>
+<view class="title">2.运算</view>
+<view>可以在{{}}内进行简单的运算</view>
+<view>--三元运算</view>
+<view hidden="{{msg =='msgShow'?false:true}}">hideen</view>
+<view>--算术运算</view>
+<view>{{a1 + a2}} + {{a3}} + a4</view>
+<view>--逻辑判断</view>
+<view wx:if="{{msg == 'msgShow'}}">显示</view>
+<view>--字符串运算</view>
+<view>{{"hello:" + msg}}</view>
+<view>--数据路径运算</view>
+<view>{{arr[0]}} + {{obj['a']}}</view>
+<view>{{arr[0] + obj['a']}}</view>
+<view class="title">3.组合</view>
+<view>--数组</view>
+<view wx:for="{{[zero,1,2,3]}}" wx:key="*this">{{item}}</view>
+<view>--对象</view>
+-------------------------------------
+<!-- 列表渲染 -->
+<view class="title">列表渲染</view>
+<view>wx:for控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件，默认各项下标变量为index，当前项变量为item</view>
+<view>--使用wx:for-index可以指定下标变量名</view>
+<view>--使用wx:for-item可以指定元素变量名</view>
+<view wx:for="{{arr}}" wx:key="index">{{index}}-{{item}}</view>
+<block wx:for="{{arr}}" wx:for-index="idx" wx:for-item="itm" wx:key="*this">
+    <view>{{idx}}</view>
+    <view>{{itm}}</view>
+</block>
+<view>--key</view>
+<view>1.字符串，代表在 for 循环的 array 中 item 的某个 property，该 property 的值需要是列表中唯一的字符串或数字，且不能动态改变。
+2.保留关键字 *this 代表在 for 循环中的 item 本身，这种表示需要 item 本身是一个唯一的字符串或者数字。</view>
+<view>--注意</view>
+<view>1.vx:for的变量为字符串时，会将字符串解析为字符串数组</view>
+<view>2.花括号与引号之间的空格会被解析为数组</view>
+-------------------------------------
+<!-- 条件渲染 -->
+<view class="title">条件渲染</view>
+<view wx:if="{{msg == 'msgShow1'}}">if:true</view>
+<view wx:elif="{{msg == 'msgShow1'}}">elif</view>
+<view wx:else>else</view>
+<view>--wx:if与hidden</view>
+1.wx:if值切换时会触发销毁或重新渲染，且初始值如果为false，则不会渲染，直到值变为false
+2.hidden始终会被渲染，只是控制显示隐藏
+<!-- 模板 -->
+<view class="title">4.模板</view>
+<view>--定义模板</view>
+<view>使用 name 属性，作为模板的名字。然后在<template/>内定义代码片段</view>
+<view>--使用模板</view>
+<view>使用 is 属性，声明需要的使用的模板，然后将模板所需要的 data 传入</view>
+<import src="./template" />
+<template is="myTemplate" data="{{...templateObj}}"></template>
+<view class="title">5.引用</view>
+<view>WXML 提供两种文件引用方式import和include</view>
+<view>--import</view>
+<view>作用域：import 有作用域的概念，即只会 import 目标文件中定义的 template，而不会 import 目标文件 import 的 template</view>
+<view>--include</view>
+<view>include 可以将目标文件除了 <template/> <wxs/> 外的整个代码引入，相当于是拷贝到 include 位置</view>
+<include src="./template" />
+<view class="title">wxss</view>
+<view>--rpx</view>
+wxss尺寸单位rpx，可根据屏幕尺寸自适应（规定屏幕宽度750rpx）
+<view>--样式导入</view>
+使用@import语句可以导入外联样式表，@import后跟需要导入的外联样式表的相对路径，用;表示语句结束
+<view>--全局样式与局部样式</view>
+定义在 app.wxss 中的样式为全局样式，作用于每一个页面。在 page 的 wxss 文件中定义的样式为局部样式，只作用在对应的页面，并会覆盖 app.wxss 中相同的选择器。
+<button type="primary" bindtap="goEvent">进入事件</button>
+
+
+
+

@@ -1,0 +1,4 @@
+/* components/testcomponents/testComponents.wxss */
+.test-class{
+    color: crimson;
+}

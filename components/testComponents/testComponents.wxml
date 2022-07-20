@@ -1,0 +1,7 @@
+<!--components/testcomponents/testComponents.wxml-->
+<text>components/testcomponents/testComponents.wxml</text>
+<view class="test-class">{{getMsg}}</view>
+<slot name="slot_a" class="slot_a"></slot>
+<slot name="slot_b" class="slot_b"></slot>
+<button type="warn" bindtap="changeMsg">changeMsg</button>
+<button bindtap="myEvent">触发父页面方法</button>

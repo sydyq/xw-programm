@@ -1,0 +1,5 @@
+<template name="myTemplate">
+    <view>模板名字：{{name}}</view>
+    <view>我是模板</view>
+</template>
+<view>aaa</view>
