@@ -4,7 +4,7 @@
 <view>1.冒泡事件</view>
 <view>2.非冒泡事件</view>
 <view class="title">普通事件绑定</view>
-<button type="primary" bindtap="bindClick">普通事件绑定</button>
+<button data-my-id="aa" data-myId="a" id="aaa" type="primary" bindtap="bindClick">普通事件绑定</button>
 <view class="title">绑定并阻止事件冒泡</view>
 除bind外，还可以用catch来绑定事件。与bind不同，catch会阻止事件向上冒泡。
 下边这个例子中，点击 inner view 会先后调用handleTap3和handleTap2(因为 tap 事件会冒泡到 middle view，而 middle view 阻止了 tap 事件冒泡，不再向父节点传递)，点击 middle view 会触发handleTap2，点击 outer view 会触发handleTap1。
@@ -29,5 +29,24 @@
     </view>
   </view>
 </view>
+<view class="title">事件捕获</view>
+<view>触摸类事件支持捕获阶段。捕获阶段位于冒泡阶段之前，且在捕获阶段中，事件到达节点的顺序与冒泡阶段恰好相反。需要在捕获阶段监听事件时，可以采用capture-bind、capture-catch关键字，后者将中断捕获阶段和取消冒泡阶段。</view>
+<view class="title">事件对象</view>
+<view>type:事件类型</view>
+<view>timeStamp:事件生成时的时间戳</view>
+<view>target:触发事件的组件的一些属性值集合</view>
+<view>--dataset</view>
+<view>--在组件节点中可以附加一些自定义数据。这样，在事件中可以获取这些自定义的节点数据，用于事件的逻辑处理。</view>
+<view>--data-element-type 最终会呈现为 event.currentTarget.dataset.elementType</view>
+<view>--data-elementType 最终会呈现为 event.currentTarget.dataset.elementtype </view>
+<view></view>
+<view>currentTarget:当前组件的一些属性值集合</view>
+<view>mark:事件标记数据</view>
+<view mark:myMark="last" bindtap="bindViewTap">
+  <button type="default" mark:anotherMark="leaf" bindtap="bindButtonTap">mark按钮</button>
+</view>
+<input type="text"/>
 <checkbox model:checked="{{checkboxBool}}">{{checkboxBool}}</checkbox>
+<button type="primary" bindtap="goBasicComponents">进入视图容器组件</button>
+
 

@@ -1,0 +1,9 @@
+<!--pages/formComponents/formComponents.wxml-->
+<text>pages/formComponents/formComponents.wxml</text>
+<view class="title">button</view>
+<button type="primary" size="mini" plain="true">我是按钮</button>
+<view class="title">checkbox</view>
+<checkbox-group bindchange="checkboxChange">
+    <checkbox value="1">1</checkbox>
+    <checkbox value="2">2</checkbox>
+</checkbox-group>

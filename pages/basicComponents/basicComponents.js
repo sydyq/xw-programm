@@ -1,37 +1,34 @@
-// pages/event/event.js
+// pages/basicComponents/basicComponents.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        checkboxBool:false
+        moveObj: {
+            direction: 'all',
+            x: 20,
+            y: 20
+        },
+        pageContainerShow: false,
+        swiperObj:{
+            autoplay:true,
+            interval:3000,
+            circular:true,
+            colorArr:["#2db7f5","#19be6b","#ff9900","#ed4014"]
+        }
     },
-    bindClick(e){
-        console.log("普通事件绑定")
-        console.log(e)
-    },
-    handleTap1(){
-        console.log("handleTap1")
-    },
-    handleTap2(){
-        console.log("handleTap2")
-    },
-    handleTap3(){
-        console.log("handleTap3")
-    },
-    bindButtonTap(e){
-        console.log(e)
-    },
-    bindViewTap(e){
-        console.log(e)
-    },
-    goBasicComponents(){
-        console.log(0)
-        wx.navigateTo({
-          url: '/pages/basicComponents/basicComponents'
+    changePageContainer() {
+        this.setData({
+            pageContainerShow: true
         })
     },
+    goFormComponent(){
+        wx.navigateTo({
+          url: '/pages/formComponents/formComponents',
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

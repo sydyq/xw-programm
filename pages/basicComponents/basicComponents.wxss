@@ -1,4 +1,4 @@
-/* pages/event/event.wxss */
+/* pages/basicComponents/basicComponents.wxss */
 .title{
     width: 375rpx;
     font-weight: bold;

@@ -1,0 +1,33 @@
+<!--pages/basicComponents/basicComponents.wxml-->
+<text>pages/basicComponents/basicComponents.wxml</text>
+<view class="title">image</view>
+<image src="/assets/img/ln.jpg"></image>
+<view class="title">view</view>
+<view>我是view组件</view>
+<view class="title">match-media</view>
+<match-media min-width="350" max-width="600">
+    <view>我是match-media</view>
+</match-media>
+<view class="title">movable-area/movable-view</view>
+<movable-area style="width: 200px;height: 200px;background-color: darkgray;">
+    <movable-view inertia="true" direction="{{moveObj.direction}}" x="{{moveObj.x}}" y="{{moveObj.y}}" style="width: 50px;height: 50px;background-color: aquamarine;"></movable-view>
+</movable-area>
+<view class="title">page-container</view>
+<page-container round="true" model:show="{{pageContainerShow}}" position="top">
+    <view>1111111111111</view>
+</page-container>
+<button type="primary" bindtap="changePageContainer">pageConrainer</button>
+<view>pageContainerShow:{{pageContainerShow}}</view>
+<view class="title">scroll-view</view>
+<scroll-view scroll-y="true" style="height: 300rpx;" scroll-top="50">
+    <view>
+        <image src="/assets/img/ln.jpg"></image>
+    </view>
+</scroll-view>
+<view class="title">swiper</view>
+<swiper autoplay="{{swiperObj.autoplay}}" interval="{{swiperObj.interval}}" circular="{{swiperObj.circular}}">
+    <swiper-item wx:for="{{swiperObj.colorArr}}" wx:key="*this">
+        <view style="background-color: {{item}};height: 100%;">{{index}}</view>
+    </swiper-item>
+</swiper>
+<button type="primary" bindtap="goFormComponent">进入表单组件</button>

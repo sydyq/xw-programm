@@ -1,0 +1,5 @@
+.title{
+    width: 375rpx;
+    font-weight: bold;
+    background-color: red;
+}

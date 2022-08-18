@@ -1,37 +1,17 @@
-// pages/event/event.js
+// pages/formComponents/formComponents.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        checkboxBool:false
+
     },
-    bindClick(e){
-        console.log("普通事件绑定")
-        console.log(e)
+    checkboxChange(e){
+        console.log("我是选中的集合")
+        console.log(e.detail.value)
     },
-    handleTap1(){
-        console.log("handleTap1")
-    },
-    handleTap2(){
-        console.log("handleTap2")
-    },
-    handleTap3(){
-        console.log("handleTap3")
-    },
-    bindButtonTap(e){
-        console.log(e)
-    },
-    bindViewTap(e){
-        console.log(e)
-    },
-    goBasicComponents(){
-        console.log(0)
-        wx.navigateTo({
-          url: '/pages/basicComponents/basicComponents'
-        })
-    },
+
     /**
      * 生命周期函数--监听页面加载
      */
